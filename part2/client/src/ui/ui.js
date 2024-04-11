@@ -1,8 +1,8 @@
 import {setMessages, getTopMessages, getMessagesByParent} from "../domain/messages.js"
-import {getMessagesFromApi} from "../svc/api.js"
+import {getMessagesFromApi, sendMessageToApi} from "../svc/api.js"
 
 
-const  displayMessages =async () => {
+export const  displayMessages =async () => {
   setMessages(await getMessagesFromApi())
 
   const messageContainer = document.getElementById("previousMessages")

@@ -1,5 +1,5 @@
-import api from "./svc/api.js"
-import ui from "./ui/ui.js"
+import {sendMessageToApi} from "./svc/api.js"
+import {displayMessages} from "./ui/ui.js"
 
 const form = document.getElementById("newMessage")
 form.addEventListener('submit', async (e) => {
@@ -8,11 +8,11 @@ form.addEventListener('submit', async (e) => {
     e.stopImmediatePropagation()
     
     const textElement = document.getElementById("messageText")
-    await api.sendMessage(textElement.value);
+    await sendMessageToApi(textElement.value);
 
     textElement.value = ""
     
-    await ui.displayMessages();
+    await displayMessages();
 })
 
-await ui.displayMessages()
+await displayMessages();
